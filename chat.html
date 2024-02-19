@@ -1,27 +1,28 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Chat</title>
+  <title>ARPANETOS CHAT</title>
   <style>
     body {
       font-family: Arial, sans-serif;
       margin: 0;
       padding-bottom: 100px; 
-      background-color: #f0f0f0;
+      background-color: #aeeaf8; /* Color celeste para el modo claro */
     }
     #chatContainer {
       width: 100%;
-      max-width: 600px;
+      max-width:160vh;
       margin: auto;
       padding-top: 20px;
     }
     #messageArea {
       overflow: auto;
-      height: 60vh;
-      border: 1px solid #ccc;
+      height: 70vh;
+      max-width: 700vh;
+      border: 1px solid #dffefb;
       padding: 10px;
       margin-bottom: 10px;
-      background-color: white;
+      background-color: #c8f6f2; /* Color celeste para el modo claro */
     }
     #inputArea {
       position: fixed;
@@ -29,7 +30,7 @@
       left: 0;
       width: 100%;
       padding: 10px 0;
-      background-color: #f0f0f0;
+      background-color: #E6FFFD; /* Color celeste para el modo claro */
       text-align: center;
     }
     #usernameInput {
@@ -50,14 +51,39 @@
     #charCount {
       margin-top: 5px;
     }
+    .message {
+      margin-bottom: 5px;
+    }
+    .username {
+      font-weight: bold;
+      color: #814bff; 
+    }
+
+    h1 {
+            font-size: 50px;
+            font-family: 'Noto Serif Display';
+            background: linear-gradient(45deg, #ac9ff4, #71a2f1); 
+            -webkit-background-clip: text; 
+            color: transparent; 
+            animation: bounce 2s infinite alternate; 
+            text-align: center;
+        }
+        @keyframes bounce {
+            0% {
+                transform: translateY(0);
+            }
+            100% {
+                transform: translateY(-10px);
+            }
+        }
   </style>
 </head>
 <body>
   <div id="chatContainer">
-    <h2>Chat</h2>
+    <h1>ARPANETOS CHAT</h1>
     <div id="messageArea"></div>
     <div id="inputArea">
-      <input id="usernameInput" type="text" placeholder="Tu nombre">
+      <input id="usernameInput" type="text" placeholder="Nombre/Usuario/Apodo">
       <input id="messageInput" type="text" placeholder="Escribe un mensaje" oninput="updateCharCount()" maxlength="140">
       <button id="sendButton" onclick="sendMessage()">Enviar</button>
       <div id="charCount">140</div>
@@ -77,10 +103,14 @@
         console.log('Mensaje enviado:', { username, message });
 
         const messageElement = document.createElement('p');
-        messageElement.textContent = `${username}: ${message}`;
+        const usernameElement = document.createElement('span');
+        usernameElement.textContent = username + ': ';
+        usernameElement.classList.add('username');
+        messageElement.appendChild(usernameElement);
+        messageElement.appendChild(document.createTextNode(message));
+        messageElement.classList.add('message');
         document.getElementById('messageArea').appendChild(messageElement);
 
-        // Limpiar el campo de mensaje
         document.getElementById('messageInput').value = '';
         updateCharCount();
       } else {
@@ -108,7 +138,7 @@
     }
 
     function applyTheme() {
-      const bgColor = darkTheme ? '#333' : '#f0f0f0';
+      const bgColor = darkTheme ? '#001f3f' : '#E6FFFD'; 
       const textColor = darkTheme ? 'white' : 'black';
       document.body.style.backgroundColor = bgColor;
       document.body.style.color = textColor;
@@ -117,9 +147,7 @@
       document.getElementById('charCount').style.color = textColor;
     }
 
-
     document.getElementById('messageInput').addEventListener('keydown', checkInput);
   </script>
 </body>
 </html>
-
