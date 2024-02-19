@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Chat</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding-bottom: 100px; 
+      background-color: #f0f0f0;
+    }
+    #chatContainer {
+      width: 100%;
+      max-width: 600px;
+      margin: auto;
+      padding-top: 20px;
+    }
+    #messageArea {
+      overflow: auto;
+      height: 60vh;
+      border: 1px solid #ccc;
+      padding: 10px;
+      margin-bottom: 10px;
+      background-color: white;
+    }
+    #inputArea {
+      position: fixed;
+      bottom: 10px;
+      left: 0;
+      width: 100%;
+      padding: 10px 0;
+      background-color: #f0f0f0;
+      text-align: center;
+    }
+    #usernameInput {
+      margin-right: 10px;
+    }
+    #messageInput {
+      width: 60%;
+      margin-right: 10px;
+    }
+    #sendButton {
+      padding: 5px 15px;
+    }
+    #themeButton {
+      position: fixed;
+      top: 10px;
+      right: 10px;
+    }
+    #charCount {
+      margin-top: 5px;
+    }
+  </style>
+</head>
+<body>
+  <div id="chatContainer">
+    <h2>Chat</h2>
+    <div id="messageArea"></div>
+    <div id="inputArea">
+      <input id="usernameInput" type="text" placeholder="Tu nombre">
+      <input id="messageInput" type="text" placeholder="Escribe un mensaje" oninput="updateCharCount()" maxlength="140">
+      <button id="sendButton" onclick="sendMessage()">Enviar</button>
+      <div id="charCount">140</div>
+    </div>
+    <button id="themeButton" onclick="changeTheme()">Cambiar Tema</button>
+  </div>
+
+  <script>
+    let darkTheme = localStorage.getItem('theme') === 'dark';
+    applyTheme();
+
+    function sendMessage() {
+      const username = document.getElementById('usernameInput').value;
+      const message = document.getElementById('messageInput').value;
+      if (username && message) {
+
+        console.log('Mensaje enviado:', { username, message });
+
+        const messageElement = document.createElement('p');
+        messageElement.textContent = `${username}: ${message}`;
+        document.getElementById('messageArea').appendChild(messageElement);
+
+        // Limpiar el campo de mensaje
+        document.getElementById('messageInput').value = '';
+        updateCharCount();
+      } else {
+        alert('Por favor, ingresa tu nombre y un mensaje.');
+      }
+    }
+
+    function checkInput(e) {
+      if (e.key === 'Enter') {
+        sendMessage();
+      }
+    }
+
+    function updateCharCount() {
+      const messageInput = document.getElementById('messageInput');
+      const charCount = document.getElementById('charCount');
+      const remaining = 140 - messageInput.value.length;
+      charCount.textContent = remaining;
+    }
+
+    function changeTheme() {
+      darkTheme = !darkTheme;
+      localStorage.setItem('theme', darkTheme ? 'dark' : 'light');
+      applyTheme();
+    }
+
+    function applyTheme() {
+      const bgColor = darkTheme ? '#333' : '#f0f0f0';
+      const textColor = darkTheme ? 'white' : 'black';
+      document.body.style.backgroundColor = bgColor;
+      document.body.style.color = textColor;
+      document.getElementById('messageInput').style.backgroundColor = darkTheme ? '#555' : 'white';
+      document.getElementById('messageInput').style.color = textColor;
+      document.getElementById('charCount').style.color = textColor;
+    }
+
+
+    document.getElementById('messageInput').addEventListener('keydown', checkInput);
+  </script>
+</body>
+</html>
+
