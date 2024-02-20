@@ -90,40 +90,21 @@ a {
   margin-top: 5px; 
 }
 
-#themeToggle {
-  appearance: none;
-  -webkit-appearance: none;
-  -moz-appearance: none;
-  width: 50px;
-  height: 25px;
-  background-color: #5fa5a3;
-  border-radius: 12.5px;
-  position: relative;
-  outline: none;
-  cursor: pointer;
-  position: fixed;
-  top: 50px;
-  right: 200px;
-  transform: translateY(-50%);
-}
-
-#themeToggle:before {
-  content: "";
-  position: absolute;
-  top: 2px;
-  left: 2px;
-  width: 21px;
-  height: 21px;
-  background-color: #92f3ef;
-
-  border-radius: 50%;
-  transition: transform 0.2s ease;
-}
-
-#themeToggle:checked:before {
-  transform: translateX(25px);
-}
-
+#themeButton {
+      position: fixed;
+      top: 10px;
+      right: 10px;
+      width: 8%;
+      margin-right: 10px;
+      background: linear-gradient(180deg, #afeaef 0%, #a8f7fe 49%, #a8f7fe 50%, #a8f7fe 100%);
+      border: 1px solid #d5f5ef;
+      padding: 15px;
+      margin: 0 auto;
+      margin-bottom: 20px;
+      border-radius: 20px;
+      box-shadow: 2px 2px 5px rgba(99, 197, 254, 0.2);
+      
+    }
   h1 {
   font-size: 50px;
   font-family: 'Noto Serif Display';
@@ -166,11 +147,13 @@ a {
       height: auto;
       border-radius: 5px;
     }
+
+
+
   </style>
 </head>
 <body>
   <div id="chatContainer">
-    <input id="themeToggle" type="checkbox">
     <h1>ARPANETOS CHAT &#128172 </h1> 
     <div id="usernameArea"></div>
     <div id="messageArea"></div>
@@ -180,8 +163,8 @@ a {
       <button id="sendButton" onclick="sendMessage()">Enviar</button>
       <div id="charCount">140</div>
     </div>
+    <button id="themeButton" onclick="changeTheme()">""</button>
   </div>
-
   <script>
     let darkTheme = localStorage.getItem('theme') === 'dark';
     applyTheme();
@@ -243,32 +226,31 @@ a {
       charCount.textContent = `${remaining}/140`;
     }
 
- 
-
-    function applyTheme() {
-      const bgColor = darkTheme ? '#001f3f' : '#E6FFFD';
-      const textColor = darkTheme ? 'white' : 'black';
-      document.body.style.backgroundColor = bgColor;
-      document.body.style.color = textColor;
-      document.getElementById('messageInput').style.backgroundColor = darkTheme ? '#555' : 'white';
-      document.getElementById('messageInput').style.color = textColor;
-      document.getElementById('charCount').style.color = textColor;
-    }
-
-
-const themeToggle = document.getElementById('themeToggle');
-
-themeToggle.addEventListener('change', () => {
-  if (themeToggle.checked) {
-    darkTheme = !darkTheme;
+    function changeTheme() {
+      darkTheme = !darkTheme;
       localStorage.setItem('theme', darkTheme ? 'dark' : 'light');
       applyTheme();
-    document.body.classList.add('dark-theme');
-  } else {
-  
-    document.body.classList.remove('dark-theme');
+    }
+    function applyTheme() {
+    const bgColor = darkTheme ? '#001f3f' : '#E6FFFD';
+    const textColor = darkTheme ? 'white' : 'black';
+    document.body.style.backgroundColor = bgColor;
+    document.body.style.color = textColor;
+    document.getElementById('messageInput').style.backgroundColor = darkTheme ? '#555' : 'white';
+    document.getElementById('messageInput').style.color = textColor;
+    document.getElementById('charCount').style.color = textColor;
+    document.getElementById('usernameInput').style.backgroundColor = darkTheme ? '#555' : 'white';
+    document.getElementById('usernameInput').style.color = textColor;
+   
+
+    document.getElementById('usernameArea').style.backgroundColor = darkTheme ? '#001f3f' : 'white';
+    document.getElementById('usernameArea').style.color = textColor;
+    
+
+    // Modificar el texto del botón
+    const themeButtonText = darkTheme ? 'Oscuro' : 'Claro';
+    document.getElementById('themeButton').textContent = `Tema (${themeButtonText})`;
   }
-});
 
 function createMessage(username, message, createdAt) {
   const messageArea = document.getElementById('messageArea');
