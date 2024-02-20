@@ -1,96 +1,108 @@
 <!DOCTYPE html>
-<html>
+<html lang="es">
 <head>
   <title>&#128172 ARPANETOS CHAT &#128172 </title>
   <style>
-  body {
+    body {
       font-family: Arial, sans-serif;
       margin: 0;
-      padding-bottom: 100px; 
-      background-color: #aeeaf8; /* Color celeste para el modo claro */
+      padding-bottom: 100px;
+      background-color: #aeeaf8; 
+      color: black;
     }
-  #chatContainer {
+
+    #chatContainer {
       width: 100%;
-      max-width:160vh;
+      max-width: 160vh;
       margin: auto;
       padding-top: 10px;
     }
-  #messageArea {
+
+    #messageArea {
       overflow: auto;
       height: 70vh;
       max-width: 700vh;
       border: 1px solid #b3e4f9;
       padding: 10px;
       margin-bottom: 10px;
-      background-color: #b3e4f9; /* Color celeste para el modo claro */
-    
+      background-color: #b3e4f9; 
     }
-  #inputArea {
+
+    #inputArea {
       position: fixed;
       bottom: 10px;
       left: 0;
       width: 100%;
       padding: 10px 0;
-      background-color: #E6FFFD; /* Color celeste para el modo claro */
+      background-color: #e6fffd; 
       text-align: center;
     }
-  #usernameInput {
-    margin-right: 13px;
-    width: 12%;
-    border: 1px solid #f9fdfc;
-    padding: 15px;
-    margin: 0 auto; 
-    margin-bottom: 10px;
-    border-radius: 5px;
-    box-shadow: 2px 2px 5px rgba(15, 4, 228, 0.2);
-    }
-  #messageInput {
-  width: 50%;
-  margin-right: 10px;
-  background-color: #F9FDFF;
-  border: 1px solid #EAF2F8;
-  padding: 15px;
-  margin: 0 auto;
-  margin-bottom: 10px;
-  border-radius: 5px;
-  box-shadow: 2px 2px 5px rgba(15, 4, 228, 0.2);
-}
 
-  #sendButton {
-  width: 8%;
-  margin-right: 10px;
-  background: linear-gradient(180deg, #afdaef 0%, #a3d5ee 49%, #9ecfe8 50%, #afdaef 100%);
-  border: 1px solid #d5f5ef;
-  padding: 15px;
-  margin: 0 auto;
-  margin-bottom: 10px;
-  border-radius: 5px;
-  box-shadow: 2px 2px 5px rgba(15, 4, 228, 0.2);
+    #usernameInput {
+      margin-right: 13px;
+      width: 12%;
+      border: 1px solid #f9fdfc;
+      padding: 15px;
+      margin: 0 auto;
+      margin-bottom: 10px;
+      border-radius: 5px;
+      box-shadow: 2px 2px 5px rgba(15, 4, 228, 0.2);
+      background-color: #ffffff; 
+      color: black;
     }
+
+    #messageInput {
+      width: 50%;
+      margin-right: 10px;
+      background-color: #f9fdff;
+      border: 1px solid #eaf2f8;
+      padding: 15px;
+      margin: 0 auto;
+      margin-bottom: 10px;
+      border-radius: 5px;
+      box-shadow: 2px 2px 5px rgba(15, 4, 228, 0.2);
+      color: black; 
+    }
+
+    #sendButton {
+      width: 8%;
+      margin-right: 10px;
+      background: linear-gradient(180deg, #afdaef 0%, #a3d5ee 49%, #9ecfe8 50%, #afdaef 100%);
+      border: 1px solid #d5f5ef;
+      padding: 15px;
+      margin: 0 auto;
+      margin-bottom: 10px;
+      border-radius: 5px;
+      box-shadow: 2px 2px 5px rgba(15, 4, 228, 0.2);
+      color: black; 
+    }
+
     #charCount {
       margin-top: 5px;
+      color: black; 
     }
+
     .message {
       margin-bottom: 5px;
     }
-/*Imagen*/
-.image-container {
-  text-align: center;
-}
 
-.image-preview {
-  max-width: 40%;
-  max-height: 40%;
-  border-radius: 5px;
-  margin-top: 10px; 
-}
+    .image-container {
+      text-align: center;
+    }
 
-a {
-  display: block; 
-  margin-top: 5px; 
-}
+    .image-preview {
+      max-width: 40%;
+      max-height: 40%;
+      border-radius: 5px;
+      margin-top: 10px;
+    }
 
-#themeButton {
+    a {
+      display: block;
+      margin-top: 5px;
+    }
+
+    #themeButton {
       position: fixed;
       top: 10px;
       right: 10px;
@@ -103,42 +115,42 @@ a {
       margin-bottom: 20px;
       border-radius: 20px;
       box-shadow: 2px 2px 5px rgba(99, 197, 254, 0.2);
-      
     }
-  h1 {
-  font-size: 50px;
-  font-family: 'Noto Serif Display';
-  background: linear-gradient(45deg, #1cb3cb, #79e9fa); 
-  -webkit-background-clip: text; 
-  color: transparent; 
-  text-align: center;
-  margin-top: 1px; 
-}
 
- .message-box {
-  background-color: #f6f6f6 ;
-  border: 1px solid #f6f6f6;
-  max-width: 85%;
-  padding: 5px;
-  margin: 0 auto; 
-  margin-bottom: 10px;
-  border-radius: 5px;
-  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
-}
+    h1 {
+      font-size: 50px;
+      font-family: 'Noto Serif Display';
+      background: linear-gradient(45deg, #1cb3cb, #79e9fa);
+      -webkit-background-clip: text;
+      color: transparent;
+      text-align: center;
+      margin-top: 1px;
+    }
+
+    .message-box {
+      background-color: #f6f6f6;
+      border: 1px solid #f6f6f6;
+      max-width: 85%;
+      padding: 5px;
+      margin: 0 auto;
+      margin-bottom: 10px;
+      border-radius: 5px;
+      box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+    }
 
     .username {
-      display: block; 
-      color: #172df0; 
+      display: block;
+      color: #172df0;
       font-family: serif;
       font-size: 15pt;
       margin-bottom: 3px;
-      font-weight: bold; 
+      font-weight: bold;
     }
-  
+
     .timestamp {
       float: right;
       font-size: 80%;
-      margin-top: -18px; 
+      margin-top: -18px;
       color: #89c7f3;
     }
 
@@ -148,22 +160,44 @@ a {
       border-radius: 5px;
     }
 
+  
+    .message-box.dark-mode {
+      background-color: #001F3F;
+      color: #ffffff; 
+      box-shadow: 2px 2px 5px rgba(36, 32, 105, 0.2); 
+    }
 
 
+    .username.dark-mode {
+      color: #f6ff73; 
+    }
+
+
+#inputArea.dark-mode {
+  background-color: #001F3F; 
+  color: #ffffff; 
+  box-shadow: 2px 2px 5px rgba(36, 32, 105, 0.2); 
+}
+
+
+#messageArea.dark-mode {
+  background-color: #414F76;
+  box-shadow: 2px 2px 5px rgba(36, 32, 105, 0.2); 
+}
   </style>
 </head>
 <body>
   <div id="chatContainer">
-    <h1>ARPANETOS CHAT &#128172 </h1> 
+    <h1>ARPANETOS CHAT &#128172 </h1>
     <div id="usernameArea"></div>
-    <div id="messageArea"></div>
-    <div id="inputArea">
+    <div id="messageArea" class="dark-mode"></div>
+    <div id="inputArea" class="dark-mode">
       <input id="usernameInput" type="text" placeholder="Nombre/Usuario/Apodo">
       <input id="messageInput" type="text" placeholder="Escribe un mensaje" oninput="updateCharCount()" maxlength="140">
       <button id="sendButton" onclick="sendMessage()">Enviar</button>
       <div id="charCount">140</div>
     </div>
-    <button id="themeButton" onclick="changeTheme()">""</button>
+    <button id="themeButton" onclick="changeTheme()">Cambiar Tema</button>
   </div>
   <script>
     let darkTheme = localStorage.getItem('theme') === 'dark';
@@ -175,20 +209,20 @@ a {
       if (username && message) {
         const url = 'https://chat.arpanetos.lol/messages';
         const options = {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify({ username, message })
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify({ username, message })
         };
         const response = await fetch(url, options);
         if (response.ok) {
-            createMessage(username, message, new Date().toLocaleString());
-            document.getElementById('messageInput').value = '';
-            updateCharCount();
+          createMessage(username, message, new Date().toLocaleString());
+          document.getElementById('messageInput').value = '';
+          updateCharCount();
         }
       } else {
-        alert('Por favor, ingresa tu nombre y un mensaje.');0
+        alert('Por favor, ingresa tu nombre y un mensaje.');
       }
     }
 
@@ -197,7 +231,6 @@ a {
         sendMessage();
       }
     }
-
 
     async function fetchMessages() {
       const url = 'https://chat.arpanetos.lol/messages';
@@ -231,69 +264,78 @@ a {
       localStorage.setItem('theme', darkTheme ? 'dark' : 'light');
       applyTheme();
     }
+
     function applyTheme() {
-    const bgColor = darkTheme ? '#001f3f' : '#E6FFFD';
-    const textColor = darkTheme ? 'white' : 'black';
-    document.body.style.backgroundColor = bgColor;
-    document.body.style.color = textColor;
-    document.getElementById('messageInput').style.backgroundColor = darkTheme ? '#555' : 'white';
-    document.getElementById('messageInput').style.color = textColor;
-    document.getElementById('charCount').style.color = textColor;
-    document.getElementById('usernameInput').style.backgroundColor = darkTheme ? '#555' : 'white';
-    document.getElementById('usernameInput').style.color = textColor;
-   
+      const bgColor = darkTheme ? '#001f3f' : '#e6fffd';
+      const textColor = darkTheme ? 'white' : 'black';
+      document.body.style.backgroundColor = bgColor;
+      document.body.style.color = textColor;
+      document.getElementById('messageInput').style.backgroundColor = darkTheme ? '#555' : 'white';
+      document.getElementById('messageInput').style.color = textColor;
+      document.getElementById('charCount').style.color = textColor;
+      document.getElementById('usernameInput').style.backgroundColor = darkTheme ? '#555' : 'white';
+      document.getElementById('usernameInput').style.color = textColor;
 
-    document.getElementById('usernameArea').style.backgroundColor = darkTheme ? '#001f3f' : 'white';
-    document.getElementById('usernameArea').style.color = textColor;
-    
+  
 
-    // Modificar el texto del botón
-    const themeButtonText = darkTheme ? 'Oscuro' : 'Claro';
-    document.getElementById('themeButton').textContent = `Tema (${themeButtonText})`;
-  }
+      const elementsToApplyDarkMode = document.querySelectorAll('.dark-mode');
+      elementsToApplyDarkMode.forEach((element) => {
+        if (darkTheme) {
+          element.classList.add('dark-mode');
+        } else {
+          element.classList.remove('dark-mode');
+        }
+      });
 
-function createMessage(username, message, createdAt) {
-  const messageArea = document.getElementById('messageArea');
-  const messageBox = document.createElement('div');
-  messageBox.classList.add('message-box');
+      const themeButtonText = darkTheme ? 'Oscuro' : 'Claro';
+      document.getElementById('themeButton').textContent = `Tema (${themeButtonText})`;
+    }
 
-  const usernameSpan = document.createElement('span');
-  usernameSpan.textContent = username;
-  usernameSpan.classList.add('username');
-  messageBox.appendChild(usernameSpan);
+    function createMessage(username, message, createdAt) {
+      const messageArea = document.getElementById('messageArea');
+      const messageBox = document.createElement('div');
+      messageBox.classList.add('message-box');
+      if (darkTheme) {
+        messageBox.classList.add('dark-mode');
+      }
 
-  const messageContent = document.createElement('p');
-  messageContent.textContent = message;
-  messageBox.appendChild(messageContent);
+      const usernameSpan = document.createElement('span');
+      usernameSpan.textContent = username;
+      usernameSpan.classList.add('username');
+      if (darkTheme) {
+        usernameSpan.classList.add('dark-mode');
+      }
+      messageBox.appendChild(usernameSpan);
 
-  const timestampSpan = document.createElement('span');
-  timestampSpan.textContent = createdAt;
-  timestampSpan.classList.add('timestamp');
-  messageBox.appendChild(timestampSpan);
+      const messageContent = document.createElement('p');
+      messageContent.textContent = message;
+      messageBox.appendChild(messageContent);
 
-  //IMAGEN 
-  const imageContainer = document.createElement('div');
-  imageContainer.classList.add('image-container');
-  messageBox.appendChild(imageContainer);
+      const timestampSpan = document.createElement('span');
+      timestampSpan.textContent = createdAt;
+      timestampSpan.classList.add('timestamp');
+      messageBox.appendChild(timestampSpan);
 
-  const imageLinkMatch = message.match(/(http(s?):)([/|.|\w|\s|-])*\.(?:jpg|gif|png)/g);
-  if (imageLinkMatch) {
-    const imagePreview = document.createElement('img');
-    imagePreview.src = imageLinkMatch[0];
-    imagePreview.classList.add('image-preview');
-    imageContainer.appendChild(imagePreview);
+      // IMAGEN
+      const imageContainer = document.createElement('div');
+      imageContainer.classList.add('image-container');
+      messageBox.appendChild(imageContainer);
 
+      const imageLinkMatch = message.match(/(http(s?):)([/|.|\w|\s|-])*\.(?:jpg|gif|png)/g);
+      if (imageLinkMatch) {
+        const imagePreview = document.createElement('img');
+        imagePreview.src = imageLinkMatch[0];
+        imagePreview.classList.add('image-preview');
+        imageContainer.appendChild(imagePreview);
 
-    const imageLink = document.createElement('a');
-    imageLink.href = imageLinkMatch[0];
-    imageLink.textContent = 'Ver imagen completa';
-    imageContainer.appendChild(imageLink);
-  }
+        const imageLink = document.createElement('a');
+        imageLink.href = imageLinkMatch[0];
+        imageLink.textContent = 'Ver imagen completa';
+        imageContainer.appendChild(imageLink);
+      }
 
-  messageArea.insertBefore(messageBox, messageArea.firstChild);
-}
-
-
+      messageArea.insertBefore(messageBox, messageArea.firstChild);
+    }
 
     setInterval(fetchMessages, 5000);
 
