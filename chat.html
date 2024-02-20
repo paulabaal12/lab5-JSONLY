@@ -3,19 +3,19 @@
 <head>
   <title>&#128172 ARPANETOS CHAT &#128172 </title>
   <style>
-    body {
+  body {
       font-family: Arial, sans-serif;
       margin: 0;
       padding-bottom: 100px; 
       background-color: #aeeaf8; /* Color celeste para el modo claro */
     }
-    #chatContainer {
+  #chatContainer {
       width: 100%;
       max-width:160vh;
       margin: auto;
-      padding-top: 20px;
+      padding-top: 10px;
     }
-    #messageArea {
+  #messageArea {
       overflow: auto;
       height: 70vh;
       max-width: 700vh;
@@ -25,7 +25,7 @@
       background-color: #b3e4f9; /* Color celeste para el modo claro */
     
     }
-    #inputArea {
+  #inputArea {
       position: fixed;
       bottom: 10px;
       left: 0;
@@ -34,17 +34,17 @@
       background-color: #E6FFFD; /* Color celeste para el modo claro */
       text-align: center;
     }
-    #usernameInput {
+  #usernameInput {
     margin-right: 13px;
     width: 12%;
     border: 1px solid #f9fdfc;
     padding: 15px;
-    margin: 0 auto; /* Esto centra horizontalmente */
+    margin: 0 auto; 
     margin-bottom: 10px;
     border-radius: 5px;
-    box-shadow: 2px 2px 5px rgba(15, 4, 228, 0.2); /* Añade una sombra */
+    box-shadow: 2px 2px 5px rgba(15, 4, 228, 0.2);
     }
-    #messageInput {
+  #messageInput {
   width: 50%;
   margin-right: 10px;
   background-color: #F9FDFF;
@@ -56,7 +56,7 @@
   box-shadow: 2px 2px 5px rgba(15, 4, 228, 0.2);
 }
 
-    #sendButton {
+  #sendButton {
   width: 8%;
   margin-right: 10px;
   background: linear-gradient(180deg, #afdaef 0%, #a3d5ee 49%, #9ecfe8 50%, #afdaef 100%);
@@ -73,24 +73,24 @@
     .message {
       margin-bottom: 5px;
     }
-/* Estilos adicionales para centrar la imagen y colocar el enlace debajo */
+/*Imagen*/
 .image-container {
   text-align: center;
 }
 
 .image-preview {
-  max-width: 100%;
-  max-height: 100%;
+  max-width: 40%;
+  max-height: 40%;
   border-radius: 5px;
-  margin-top: 10px; /* Espacio entre el mensaje y la imagen */
+  margin-top: 10px; 
 }
 
 a {
-  display: block; /* Hace que el enlace esté en su propia línea */
-  margin-top: 5px; /* Espacio entre la imagen y el enlace */
+  display: block; 
+  margin-top: 5px; 
 }
 
-    #themeToggle {
+#themeToggle {
   appearance: none;
   -webkit-appearance: none;
   -moz-appearance: none;
@@ -131,7 +131,7 @@ a {
   -webkit-background-clip: text; 
   color: transparent; 
   text-align: center;
-  margin-top: 1px; /* Add margin-top to move it lower */
+  margin-top: 1px; 
 }
 
  .message-box {
@@ -139,25 +139,25 @@ a {
   border: 1px solid #f6f6f6;
   max-width: 85%;
   padding: 5px;
-  margin: 0 auto; /* Esto centra horizontalmente */
+  margin: 0 auto; 
   margin-bottom: 10px;
   border-radius: 5px;
-  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2); /* Añade una sombra */
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
 }
 
     .username {
-      display: block; /* Hace que el nombre de usuario esté en su propia línea */
-      color: #172df0; /* Color distintivo para el nombre de usuario */
+      display: block; 
+      color: #172df0; 
       font-family: serif;
-      font-size: 12pt;
+      font-size: 15pt;
       margin-bottom: 3px;
       font-weight: bold; 
     }
   
     .timestamp {
       float: right;
-      font-size: 80%; /* Increase the font size to make it larger */
-      margin-top: -18px; /* Move it slightly higher */
+      font-size: 80%;
+      margin-top: -18px; 
       color: #89c7f3;
     }
 
@@ -205,7 +205,7 @@ a {
             updateCharCount();
         }
       } else {
-        alert('Por favor, ingresa tu nombre y un mensaje.');
+        alert('Por favor, ingresa tu nombre y un mensaje.');0
       }
     }
 
@@ -265,7 +265,7 @@ themeToggle.addEventListener('change', () => {
       applyTheme();
     document.body.classList.add('dark-theme');
   } else {
-    // Aplicar tema claro
+  
     document.body.classList.remove('dark-theme');
   }
 });
@@ -289,7 +289,7 @@ function createMessage(username, message, createdAt) {
   timestampSpan.classList.add('timestamp');
   messageBox.appendChild(timestampSpan);
 
-  // Contenedor para la imagen
+  //IMAGEN 
   const imageContainer = document.createElement('div');
   imageContainer.classList.add('image-container');
   messageBox.appendChild(imageContainer);
@@ -301,14 +301,13 @@ function createMessage(username, message, createdAt) {
     imagePreview.classList.add('image-preview');
     imageContainer.appendChild(imagePreview);
 
-    // Enlace debajo de la imagen
+
     const imageLink = document.createElement('a');
     imageLink.href = imageLinkMatch[0];
     imageLink.textContent = 'Ver imagen completa';
     imageContainer.appendChild(imageLink);
   }
 
-  // Insertar el nuevo mensaje al principio del contenedor
   messageArea.insertBefore(messageBox, messageArea.firstChild);
 }
 
